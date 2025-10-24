@@ -1,75 +1,337 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-  <link rel="stylesheet" href="jemdoc.css" type="text/css" />
-  <link rel="shortcut icon" href="favicon.ico" />
-  <link rel="bookmark" href="favicon.ico" type="image/x-icon" 　 />
-  <title>Dongzeng Tan (檀东增)</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Dzeng Tan's Homepage</title>
+  <link rel="icon" href="yousha.png" />
+  <style>
+    :root {
+      /* light mode palette */
+      --page-bg: radial-gradient(circle at 20% 20%, #eef2ff 0%, #f9fafb 60%);
+      --card-bg: rgba(255, 255, 255, 0.8);
+      --border-color: rgba(15, 23, 42, 0.07);
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --accent: #4f46e5;
+
+      --radius-xl: 20px;
+      --shadow-card: 0 24px 40px -8px rgba(15, 23, 42, 0.12);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --page-bg: radial-gradient(circle at 20% 20%, #1e1e2f 0%, #0f172a 60%);
+        --card-bg: rgba(30, 41, 59, 0.6);
+        --border-color: rgba(255, 255, 255, 0.08);
+        --text-main: #f8fafc;
+        --text-muted: #94a3b8;
+        --accent: #818cf8;
+
+        --shadow-card: 0 24px 40px -8px rgba(0, 0, 0, 0.8);
+      }
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      background: var(--page-bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration: none;
+      opacity: 0.9;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    header {
+      background: var(--card-bg);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-card), 0 8px 32px rgba(79, 70, 229, 0.15);
+
+      padding: 24px 28px;
+      margin-bottom: 32px;
+
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .header-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .brand h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin: 0;
+      color: var(--text-main);
+    }
+
+    .brand span {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin-top: 6px;
+    }
+
+    .brand span + span {
+      font-weight: 400;
+      font-size: 0.88rem;
+      line-height: 1.4;
+    }
+
+    nav {
+      margin-left: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    nav a {
+      display: inline-flex;
+      align-items: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      line-height: 1.2;
+      color: var(--text-main);
+      background: transparent;
+      border-radius: 999px;
+      padding: 6px 12px;
+      border: 1px solid transparent;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: var(--accent);
+      background-color: rgba(79, 70, 229, 0.07);
+      border-color: rgba(79, 70, 229, 0.2);
+      text-decoration: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      nav a:hover,
+      nav a:focus {
+        background-color: rgba(129, 140, 248, 0.12);
+        border-color: rgba(129, 140, 248, 0.4);
+      }
+    }
+
+    .layout {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      gap: 24px;
+    }
+
+    main {
+      display: grid;
+      gap: 24px;
+    }
+
+    section {
+      background: var(--card-bg);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-card);
+      padding: 24px 28px;
+    }
+
+    section#about {
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.05), rgba(255, 255, 255, 0.9));
+    }
+
+    section#publications {
+      background: linear-gradient(135deg, rgba(236, 72, 153, 0.05), rgba(255, 255, 255, 0.9));
+    }
+
+    section h2 {
+      margin: 0 0 16px;
+      font-size: 1.05rem;
+      line-height: 1.3;
+      font-weight: 600;
+      color: var(--text-main);
+      letter-spacing: -0.03em;
+      position: relative;
+    }
+
+    section h2::after {
+      content: "";
+      display: block;
+      width: 40px;
+      height: 3px;
+      margin-top: 6px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    section p {
+      margin: 0 0 1rem;
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .pub-list {
+      margin: 0;
+      padding-left: 1.1rem;
+      display: grid;
+      gap: 16px;
+      color: var(--text-main);
+      font-size: 0.97rem;
+      line-height: 1.55;
+    }
+
+    .pub-item {
+      list-style-type: disc;
+    }
+
+    .pub-item strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .pub-item em {
+      font-style: italic;
+      color: var(--text-main);
+    }
+
+    .pub-item small {
+      display: block;
+      margin-top: 8px;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      line-height: 1.4;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-left: 0;
+      }
+
+      .brand h1 {
+        font-size: 1.25rem;
+      }
+
+      section {
+        padding: 20px 22px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <table summary="Table for page layout." id="tlayout">
-    <tr valign="top">
-      <td id="layout-menu">
-        <div class="menu-category">Menu</div>
-        <div class="menu-item"><a href="index.html" class="current">Home</a></div>
-        <!-- <div class="menu-item"><a href="https://scholar.google.com/citations?user=xTzN-qoAAAAJ&hl=zh-CN&oi=ao">Google Scholar</a></div>
-<div class="menu-item"><a href="https://www.researchgate.net/profile/Xiuze-Zhou">ResearchGate</a></div>
-<div class="menu-item"><a href="https://github.com/XiuzeZhou">GitHub</a></div>
-<div class="menu-item"><a href="http://snailwish.com/">个人博客</a></div> -->
-      </td>
-      <td id="layout-content">
-        <div id="toptitle">
-          <h1>Dongzeng Tan (檀东增) </h1>
+  <div class="page">
+    <header>
+      <div class="header-info">
+        <div class="brand">
+          <h1>Dongzeng Tan</h1>
+          <span>Machine Learning Engineer · Alibaba Inc.</span>
+          <span>📍 Hangzhou, China | ✉️ <a href="mailto:tandz@zju.edu.cn">tandz@zju.edu.cn</a> | 🐱 <a href="https://github.com/ginkoeric">github.com/ginkoeric</a> </span>
         </div>
-        <table class="imgtable">
-          <tr>
-            <td>
-              <a href="https://ginkoeric.github.io/"><img src="photos/bio.jpg" alt="alt text" width="131px"
-                  height="160px" /></a>&nbsp;
-            </td>
-            <td align="left">
-              <p>Machine Learning Algorithm Engineer,<br />
-                Alibaba Inc. <br />
-                No. 969 Wenyi Rd, <br />
-                Hangzhou, China <br />
-                E-mail: <a href="mailto:tandz@zju.edu.cn">tandz@zju.edu.cn</a></p>
-            </td>
-          </tr>
-        </table>
-        <h2>About me</h2>
-        <p>I received the M.S.
-          degree from Zhejiang University, in 2021. I am currently a Machine Learning Algorithm Engineer with the Alibaba Inc, China. 
-          My main research interests include Machine Learning, Deep Learning and Recommender Systems. 
-        </p>
-        <!-- <h2>Research</h2>
-        <p>My research interests include: </p>
-        <ul>
-          <li>
-            <p>Recommender Systems</p>
-          </li>
-          <li>
-            <p>Computer Vision</p>
-          </li>
-        </ul>
-        <h3>Current work</h3>
-        <ul>
-          <li>
-            <p>Diffusion for Knee Osteoarthritis Prediction</p>
-          </li>
-          <li>
-            <p>Temporal Neural Network for Knee Osteoarthritis Prediction</p>
-          </li>
-          <li>
-            <p>Semi-supervised for for Recommendation</p>
-          </li>
-        </ul> -->
-      </td>
-    </tr>
-  </table>
+        <!-- <div class="quick-links">
+          <span>📍 Hangzhou, China</span>
+          <span>✉️ <a href="mailto:tandz@zju.edu.cn">tandz@zju.edu.cn</a></span>
+          <span>🐱 <a href="https://github.com/ginkoeric">github.com/ginkoeric</a></span>
+        </div> -->
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#publications">Publications</a>
+      </nav>
+    </header>
+
+    <div class="layout">
+      <main>
+        <section id="about">
+          <h2>About Me</h2>
+          <p>
+            I am currently a Machine Learning Engineer (Recommender Systems) at Alibaba Inc., based in Hangzhou.
+            Previously, I received my M.S. degree from Zhejiang University in 2021, where I focused on computer vision
+            and anomaly detection.
+          </p>
+          <p>
+            <strong>Research interests:</strong> Recommender Systems, Deep Learning, Computer Vision, Anomaly Detection,
+            Large-Scale Machine Learning.
+          </p>
+        </section>
+
+        <section id="publications">
+          <h2>Publications</h2>
+          <ul class="pub-list">
+            <li class="pub-item">
+              Zhou Zhang*, <strong>Dongzeng Tan*</strong>, Jiaan Wang, Yilong Chen, and Jiarong Xu#.
+              <em>Unleashing the Power of Emojis in Texts via Self-supervised Graph Pre-Training.</em>
+              In <em>Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP’24)</em>.
+              <a href="https://arxiv.org/abs/2409.14552" target="_blank">[PDF]</a>
+              <br>
+              <small>(* equal contribution, # corresponding author)</small>
+            </li>
+          </ul>
+        </section>
+
+      </main>
+    </div>
+
+    <footer>
+      © <span id="year"></span> Dongzeng Tan
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 
 </html>
